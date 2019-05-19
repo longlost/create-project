@@ -1,0 +1,46 @@
+{
+  "name": "@spriteful/new-cms",
+  "version": "1.0.0",
+  "description": "A new Spriteful CMS",
+  "main": "index.js",
+  "flat": true,
+  "scripts": {
+    "dev": "tools/node_modules/.bin/webpack --watch --config webpack.config.js #see in memory dist folder",
+    "serve:dev": "tools/node_modules/.bin/webpack-dev-server --config webpack.config.js",
+    "serve:devwin": "tools\\node_modules\\.bin\\webpack-dev-server --config webpack.config.js",
+    "start": "npm run serve:dev",
+    "win": "npm run serve:devwin",
+    "lint": "tools/node_modules/.bin/eslint . --ext js,html --ignore-path .gitignore",
+    "test": "polymer test --npm -l chrome -l safari",
+    "preproduction": "npm run lint && npm run test",
+    "bundle": "tools/node_modules/.bin/webpack --config webpack.build.config.js",
+    "winbun": "tools\\node_modules\\.bin\\webpack --config webpack.build.config.js",
+    "build": "npm run preproduction && npm run bundle",
+    "preview": "tools/node_modules/.bin/webpack --watch --config webpack.build.config.js # --watch to allow browser-sync",
+    "serve:build": "npm run preproduction && npm run preview",
+    "firebase:serve": "npm run build && firebase serve --only hosting",
+    "deploy:build": "npm run build && firebase deploy --only hosting",
+    "deploy:functions": "firebase deploy --only functions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spriteful/new-cms.git"
+  },
+  "author": "Spriteful spritefuldev@gmail.com",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/spriteful/new-cms/issues"
+  },
+  "homepage": "https://github.com/spriteful/new-cms#readme",
+  "dependencies": {
+    "@babel/runtime": "^7.4.4",
+    "@polymer/paper-input": "^3.0.2",
+    "@polymer/paper-tabs": "^3.1.0",
+    "@spriteful/app-header-overlay": "^1.0.1",
+    "@spriteful/app-shell": "^1.0.9",
+    "@spriteful/boot": "^1.1.0",
+    "@spriteful/scroll-fab": "^1.0.0",
+    "@spriteful/spriteful-element": "^1.0.4",
+    "@spriteful/utils": "^1.2.4"
+  }
+}

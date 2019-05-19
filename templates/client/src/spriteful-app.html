@@ -1,0 +1,40 @@
+  
+<app-shell id="appShell" 
+           title="Spriteful"
+           imports="[[_imports]]"
+           account-header-image="[[_accountHeaderImg]]"
+           page="{{_selectedPage}}"
+           reveal-header
+           header-size="1">
+
+  <!-- top toolbar slot slot="top-toolbar-slot" -->
+  
+  <!-- bottom toolbar slot slot="bottom-toolbar-slot" -->
+  
+  <!-- views go here slot="views-slot" -->
+
+  <test-view slot="views-slot" 
+             page="view1"
+             label="Test View">
+  </test-view> 
+
+
+  <example-view slot="views-slot" 
+                page="view2"
+                label="View Two">
+  </example-view>
+  <example-view slot="views-slot" 
+                page="view3" 
+                label="View Three">
+  </example-view>
+
+  <!-- overlays with menu button go here -->
+  <!-- they must have the slot="overlays-slot", label and page attr -->
+  <fancy-header-example id="fancy-header-example" 
+                        icon="app-icons:terrain" 
+                        label="Example" 
+                        slot="overlays-slot"
+                        page="example">
+  </fancy-header-example>
+
+</app-shell>
