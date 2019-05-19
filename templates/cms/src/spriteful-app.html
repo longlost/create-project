@@ -1,0 +1,86 @@
+
+<style>
+
+  #appShell {
+    --drawer-color:            var(--constant-dark-text);
+    --drawer-background-color: var(--app-disabled-color);
+    --drawer-item-selected-mixin: {
+      color:       var(--constant-dark-text);
+      font-weight: bold;
+    };
+  }
+  
+  paper-tabs {
+    width:                            100%;
+    height:                           64px;
+    position:                         absolute;
+    left:                             0px;
+    --paper-tab-ink:                  var(--constant-light-text);
+    --paper-tabs-selection-bar-color: var(--constant-light-text);
+  }
+
+  paper-tab {
+    margin-right: 16px;
+  }
+
+  paper-tab[link] a {
+    @apply --layout-horizontal;
+    @apply --layout-center-center;
+    color:           var(--constant-light-text);
+    text-decoration: none;
+  }
+
+</style>
+
+
+<app-shell id="appShell" 
+           title="New CMS"
+           imports="[[_imports]]"
+           account-required
+           account-header-image="[[_accountHeaderImg]]"
+           fixed-header
+           sticky-bottom-toolbar
+           reveal-header
+           page="{{_selectedPage}}"
+           header-size="2">
+
+  <!-- top toolbar slot slot="top-toolbar-slot" -->
+
+  <!-- middle toolbar slot slot="middle-toolbar-${i}-slot" -->
+  
+  <!-- bottom toolbar slot slot="bottom-toolbar-slot" -->
+  <paper-tabs attr-for-selected="page" 
+              selected="[[_selectedPage]]" 
+              slot="bottom-toolbar-slot"
+              scrollable>
+    <paper-tab page="orders" link>
+      <a href="[[_rootPath]]orders">Orders</a>
+    </paper-tab>
+    <paper-tab page="reports" link>
+      <a href="[[_rootPath]]reports">Reports</a>
+    </paper-tab> 
+  </paper-tabs>
+  
+	<!-- views go here slot="views-slot" -->
+
+
+  <example-view slot="views-slot" 
+                page="orders"
+                label="Orders">
+  </example-view>
+  <example-view slot="views-slot" 
+                page="reports" 
+                label="Reports">
+  </example-view>
+  
+  <scroll-fab slot="overlays-slot"></scroll-fab>
+  
+  <!-- overlays with menu button go here -->
+  <!-- they must have the slot="overlays-slot", label and page attr -->
+  
+  
+  <!-- overlay with no menu button go here -->
+  <!-- they must have the slot="overlays-slot" attr --> 
+
+  
+</app-shell>
