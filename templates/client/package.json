@@ -33,8 +33,13 @@
     "url": "https://github.com/spriteful/new-client/issues"
   },
   "homepage": "https://github.com/spriteful/new-client#readme",
+  "devDependencies": {
+    "@babel/runtime": "^7.4.5",
+    "@webcomponents/shadycss": "^1.9.1",
+    "@webcomponents/webcomponentsjs": "^2.2.10",
+    "babel-polyfill": "^6.26.0"
+  },
   "dependencies": {
-    "@babel/runtime": "^7.4.4",
     "@spriteful/app-shell": "^1.0.8",
     "@spriteful/boot": "^1.0.0",
     "@spriteful/scroll-fab": "^1.0.0",

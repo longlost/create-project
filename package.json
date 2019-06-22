@@ -1,6 +1,6 @@
 {
   "name": "@spriteful/create-project",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "start a new Spriteful project easily with this cli utilitiy",
   "main": "src/index.js",
   "bin": {

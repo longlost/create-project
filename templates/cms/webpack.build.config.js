@@ -146,11 +146,11 @@ module.exports = [{
     // will be picked up by webpack and
     // broken up into smaller files that contain 
     // only the required polyfills as per babel-preset-env browserlist
-    './tools/node_modules/babel-polyfill',
-    './tools/node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js',
+    'babel-polyfill',
+    '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js',
     // MUST be webcomponents-bundle.js, webcomponents-loader.js does not work for googlebot
-    './tools/node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js',
-    './tools/node_modules/@webcomponents/shadycss/entrypoints/custom-style-interface.js',
+    '@webcomponents/webcomponentsjs/webcomponents-bundle.js',
+    '@webcomponents/shadycss/entrypoints/custom-style-interface.js',
     './src/index.js'
   ],
   output: {
@@ -277,15 +277,15 @@ module.exports = [{
     })
   ]
 }, {
-  name:  'modern',
+  name: 'modern',
   mode,
   entry: [
     // will be picked up by webpack and
     // broken up into smaller files that contain 
     // only the required polyfills as per babel-preset-env browserlist
-    './tools/node_modules/babel-polyfill',
-    './tools/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js',    
-    './tools/node_modules/@webcomponents/shadycss/entrypoints/custom-style-interface.js',
+    'babel-polyfill',
+    '@webcomponents/webcomponentsjs/webcomponents-loader.js',    
+    '@webcomponents/shadycss/entrypoints/custom-style-interface.js',
     './src/index.js'
   ],
   output: {
