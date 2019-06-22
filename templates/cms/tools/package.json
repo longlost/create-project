@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
@@ -38,10 +38,5 @@
     "webpack-pwa-manifest": "^4.0.0",
     "workbox-webpack-plugin": "^4.3.1",
     "worker-loader": "^2.0.0"
-  },
-  "dependencies": {
-    "@webcomponents/shadycss": "^1.9.1",
-    "@webcomponents/webcomponentsjs": "^2.2.10",
-    "babel-polyfill": "^6.26.0"
   }
 }

@@ -13,8 +13,8 @@ const DashboardPlugin    = require('./tools/node_modules/webpack-dashboard/plugi
 
 module.exports = {
   mode: 'development',
-  entry: [    
-    './tools/node_modules/@webcomponents/shadycss/entrypoints/custom-style-interface.js',
+  entry: [ 
+    '@webcomponents/shadycss/entrypoints/custom-style-interface.js',
     './src/index.js'
   ],
   output: {

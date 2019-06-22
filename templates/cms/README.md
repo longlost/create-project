@@ -1,2 +1,2 @@
-# meta-waves-cms
-Back end for Meta-Waves LLC
+# spriteful-cms-starter
+Back end starter kit
