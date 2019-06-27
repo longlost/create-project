@@ -365,7 +365,7 @@ module.exports = [{
       navigateFallbackWhitelist: [/^(?!\/__)/], // allow firebase api to bypass sw
       runtimeCaching: [{
         urlPattern: new RegExp('^https://storage\\.googleapis\\.com/'),
-        handler:   'staleWhileRevalidate',
+        handler:   'StaleWhileRevalidate',
         options: {
           // Use a custom cache name.
           cacheName: 'app-images',
