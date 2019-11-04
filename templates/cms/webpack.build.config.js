@@ -175,7 +175,7 @@ module.exports = [{
         exclude: babelLoaderExcludeNodeModulesExcept([
           'comlinkjs',
           '@polymer',
-          '@spriteful',
+          '@longlost',
           '@webcomponents'
         ]),
         use: {
@@ -307,7 +307,7 @@ module.exports = [{
       {
         test:    /\.js$/,
         exclude: babelLoaderExcludeNodeModulesExcept([
-          '@spriteful',
+          '@longlost',
           '@polymer'
         ]),
         use: {
@@ -335,7 +335,7 @@ module.exports = [{
                   '@polymer/polymer/polymer-element.js':    ['html'],
                   '@polymer/polymer/polymer-legacy.js':     ['html'],
                   '@polymer/polymer/lib/utils/html-tag.js': ['html'],               
-                  '@spriteful/spriteful-element.js':        ['html']
+                  '@longlost/app-element.js':               ['html']
                 },
                 htmlMinifier: {
                   collapseWhitespace: true,
@@ -365,7 +365,7 @@ module.exports = [{
       navigateFallbackWhitelist: [/^(?!\/__)/], // allow firebase api to bypass sw
       runtimeCaching: [{
         urlPattern: new RegExp('^https://storage\\.googleapis\\.com/'),
-        handler:   'StaleWhileRevalidate',
+        handler:   'staleWhileRevalidate',
         options: {
           // Use a custom cache name.
           cacheName: 'app-images',

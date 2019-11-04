@@ -1,0 +1,180 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>spriteful app test</title>
+
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../node_modules/wct-browser-legacy/browser.js"></script>
+
+
+
+    <!-- Import the element to test -->
+    <link rel="import" href="../src/app-main.js">
+
+
+
+  </head>
+  <body>
+
+    <test-fixture id="appMain">
+      <template>
+        <app-main></app-main>
+      </template>
+    </test-fixture>
+
+
+    <script>
+      suite('<app-main>', function() {
+
+
+
+
+        // <app-location route="{{route}}" url-space-regex="^[[rootPath]]"></app-location>
+
+        // <app-route route="{{route}}"
+        //            pattern="[[rootPath]]:page"
+        //            data="{{routeData}}"
+        //            tail="{{subroute}}">
+        // </app-route>
+
+
+
+        let appMain,
+            ironSelector,
+            menuAnchors,
+            menuBtn,
+            ironPages,
+            views,
+            viewsCountExcluding404;
+
+        const attrsAreStrings = (els, attr) => {
+          const bools = els.map(el => typeof el.getAttribute(attr) === 'string');
+          return bools;
+        };
+
+        setup(function() {
+          appMain           = fixture('appMain');
+          ironSelector           = appMain.shadowRoot.querySelector('iron-selector');
+          menuAnchors            = Array.from(ironSelector.querySelectorAll('a'));
+          menuBtn                = appMain.shadowRoot.querySelector('#menu-btn');
+          ironPages              = appMain.shadowRoot.querySelector('iron-pages');
+          views                  = Array.from(ironPages.children);
+          viewsCountExcluding404 = views.length - 1;
+        });
+
+
+      	test('<app-main> exists', function() {
+          assert.exists(appMain, '<app-main> exists');
+      	});
+
+        test('<iron-selector> exists', function() {
+          assert.exists(ironSelector, '<iron-selector> exists');
+        });
+
+        test('<iron-selector> has "drawer-list" class', function() {
+          assert.isTrue(ironSelector.classList.contains('drawer-list'));
+        });
+
+        test('<iron-selector> has role attribute set to "navigation"', function() {
+          assert.equal(ironSelector.getAttribute('role'), 'navigation');
+        });
+
+        test('<iron-selector> has attr-for-selected property set to "name"', function() {
+          assert.equal(ironSelector.attrForSelected, 'name');
+        });
+
+        test('<iron-selector> selected property is a string', function() {
+        	assert.typeOf(ironSelector.selected, 'string');
+        });
+
+        test('there is at lease one menu anchor tag', function() {
+          assert.isAtLeast(menuAnchors.length, 1);
+        });
+
+        test('all menu anchor tags have name attributes set to a string value', function() {
+          const nameAttributesAreStrings = attrsAreStrings(menuAnchors, 'name');
+          assert.notInclude(nameAttributesAreStrings, false);
+        });
+
+        test('all menu anchor tags have href attributes set to a string value', function() {
+          const hrefAttributesAreStrings = attrsAreStrings(menuAnchors, 'href');
+          assert.notInclude(hrefAttributesAreStrings, false);
+        });
+
+        test('<iron-pages> exists', function() {
+          assert.exists(ironPages, '<iron-pages> exists');
+        });
+
+        test('<iron-pages> has role attribute set to "main"', function() {
+          assert.equal(ironPages.getAttribute('role'), 'main');
+        });
+
+        test('<iron-pages> has attr-for-selected property set to "name"', function() {
+          assert.equal(ironPages.attrForSelected, 'name');
+        });
+
+        test('<iron-pages> has fallback-selection property set to "view404"', function() {
+          assert.equal(ironPages.fallbackSelection, 'view404');
+        });
+
+        test('<iron-pages> has a 404 fallback view element', function() {
+          const nameAttrIsView404 = view => view.getAttribute('name') === 'view404';
+          const filteredViews     = views.filter(nameAttrIsView404);
+          const hasOneFallback    = filteredViews.length === 1;
+          assert.isTrue(hasOneFallback);
+        });
+
+        test('<iron-pages> selected property is a string', function() {
+          assert.typeOf(ironPages.selected, 'string');
+        });
+
+        test('<iron-pages> has at least one child view element (excluding view404)', function() {
+          assert.isAtLeast(viewsCountExcluding404, 1); 
+        });
+
+        test('there are the same number of menu selections as there are views (excluding view404)', function() {
+          assert.equal(menuAnchors.length, viewsCountExcluding404);
+        });
+
+        test('all views have name attributes set to a string value', function() {
+          const nameAttributesAreStrings = attrsAreStrings(views, 'name');
+          assert.notInclude(nameAttributesAreStrings, false);
+        });
+
+        test('#menu-btn exists', function() {
+          assert.exists(menuBtn, '#menu-btn exists');
+        });
+
+        test('#menu-btn has and icon property set to a string value', function() {
+          assert.typeOf(menuBtn.icon, 'string');
+        });
+
+        test('#menu-btn has drawer-toggle attribute', function() {
+          assert.isTrue(menuBtn.hasAttribute('drawer-toggle'));
+        });
+
+
+
+
+        // test app-main properties and methods
+
+
+      });
+
+
+    </script>
+  </body>
+</html>
