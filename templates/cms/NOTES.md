@@ -1,5 +1,5 @@
 
-# Spriteful Starter Kit Notes
+# Longlost Starter Kit Notes
 
 
 
@@ -9,7 +9,7 @@ carefully update all elements
 update index.html theme colors to match the 'theme' obj
 
 
-### spriteful-pay
+### checkout-pay
 
 
 update gateway config in firebase cloud functions index.js

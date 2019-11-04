@@ -9,7 +9,7 @@ carefully update all elements
 update index.html theme colors to match the 'theme' obj
 
 
-### app-pay
+### checkout-pay
 
 
 update gateway config in firebase cloud functions index.js
