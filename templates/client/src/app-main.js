@@ -1,15 +1,15 @@
 
 import {
-  SpritefulElement, 
+  AppElement, 
   html
-}                       from '@spriteful/spriteful-element/spriteful-element.js';
+}                       from '@longlost/app-element/app-element.js';
 import {
   listen
-}                       from '@spriteful/utils/utils.js';
-import htmlString       from './spriteful-app.html';
+}                       from '@longlost/utils/utils.js';
+import htmlString       from './app-main.html';
 import accountHeaderImg from 'images/BlueOrangeBackground.jpg'
-import '@spriteful/app-shell/app-shell.js';
-// import './spriteful/test-view.js'; // initial page should be loaded here for best first paint exp
+import '@longlost/app-shell/app-shell.js';
+// import './longlost/test-view.js'; // initial page should be loaded here for best first paint exp
 
 /**
   * "views-slot" items must have a page, label and 
@@ -27,8 +27,8 @@ import '@spriteful/app-shell/app-shell.js';
   **/
 
 
-class SpritefulApp extends SpritefulElement {
-  static get is() { return 'spriteful-app'; }
+class AppMain extends AppElement {
+  static get is() { return 'app-main'; }
 
   static get template() {
     return html([htmlString]);
@@ -41,14 +41,14 @@ class SpritefulApp extends SpritefulElement {
       _accountHeaderImg: Object,
       // webpack must 'see' the full path strings in each dynamic import
       // cannot use variables in import statements that refer to folders outside of
-      // spriteful since webpack does not know of their existence
+      // project since webpack does not know of their existence
       _imports: {
         type: Object,
         value: {
-          view1:   () => import('@spriteful/example-view/example-view.js'),
-          view2:   () => import('@spriteful/example-view/example-view.js'),
-          view3:   () => import('@spriteful/example-view/example-view.js'),
-          example: () => import('@spriteful/fancy-header-example/fancy-header-example.js')
+          view1:   () => import('@longlost/example-view/example-view.js'),
+          view2:   () => import('@longlost/example-view/example-view.js'),
+          view3:   () => import('@longlost/example-view/example-view.js'),
+          example: () => import('@longlost/fancy-header-example/fancy-header-example.js')
         }
       },      
       // from app-shell
@@ -80,4 +80,4 @@ class SpritefulApp extends SpritefulElement {
   
 }
 
-window.customElements.define(SpritefulApp.is, SpritefulApp);
+window.customElements.define(AppMain.is, AppMain);

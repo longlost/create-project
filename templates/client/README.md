@@ -1,2 +1,2 @@
-# spriteful-starter
+# longlost-starter
 PWA starter kit

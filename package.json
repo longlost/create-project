@@ -1,10 +1,10 @@
 {
-  "name": "@spriteful/create-project",
+  "name": "@longlost/create-project",
   "version": "1.0.2",
-  "description": "start a new Spriteful project easily with this cli utilitiy",
+  "description": "start a new App or CMS project easily with this cli utilitiy",
   "main": "src/index.js",
   "bin": {
-    "@spriteful/create-project": "bin/create-project",
+    "@longlost/create-project": "bin/create-project",
     "create-project": "bin/create-project"
   },
   "publishConfig": {
@@ -24,20 +24,20 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spriteful/create-project.git"
+    "url": "git+https://github.com/longlost/create-project.git"
   },
-  "author": "Spriteful spritefuldev@gmail.com",
+  "author": "Longlost Dev longlostdev@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/spriteful/create-project/issues"
+    "url": "https://github.com/longlost/create-project/issues"
   },
-  "homepage": "https://github.com/spriteful/create-project#readme",
+  "homepage": "https://github.com/longlost/create-project#readme",
   "dependencies": {
     "arg": "^4.1.0",
     "chalk": "^2.4.2",
     "esm": "^3.2.25",
-    "execa": "^1.0.0",
-    "inquirer": "^6.3.1",
+    "execa": "^3.2.0",
+    "inquirer": "^7.0.0",
     "listr": "^0.14.3",
     "ncp": "^2.0.0",
     "pkg-install": "^1.0.0"
