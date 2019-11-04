@@ -1,5 +1,5 @@
 {
-  "name": "@spriteful/new-client",
+  "name": "@longlost/new-client",
   "version": "1.0.0",
   "description": "New client PWA",
   "main": "./src/index.js",
@@ -25,14 +25,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spriteful/new-client.git"
+    "url": "git+https://github.com/longlost/new-client.git"
   },
-  "author": "Spriteful spritefuldev@gmail.com",
+  "author": "Longlost Dev longlostdev@gmail.com",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/spriteful/new-client/issues"
+    "url": "https://github.com/longlost/new-client/issues"
   },
-  "homepage": "https://github.com/spriteful/new-client#readme",
+  "homepage": "https://github.com/longlost/new-client#readme",
   "devDependencies": {
     "@babel/runtime": "^7.4.5",
     "@webcomponents/shadycss": "^1.9.1",
@@ -40,10 +40,10 @@
     "babel-polyfill": "^6.26.0"
   },
   "dependencies": {
-    "@spriteful/app-shell": "^1.0.8",
-    "@spriteful/boot": "^1.0.0",
-    "@spriteful/scroll-fab": "^1.0.0",
-    "@spriteful/spriteful-element": "^1.0.3",
-    "@spriteful/utils": "^1.2.4"
+    "@longlost/app-shell": "^1.0.8",
+    "@longlost/boot": "^1.0.0",
+    "@longlost/scroll-fab": "^1.0.0",
+    "@longlost/app-element": "^1.0.3",
+    "@longlost/utils": "^1.2.4"
   }
 }

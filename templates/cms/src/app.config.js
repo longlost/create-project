@@ -2,11 +2,11 @@
 const webpackConfig = {
   name:             'New CMS',         // can affect seo
   short_name:       'New CMS',         // 12 characters or less (homescreen icon name)
-  description:      'A new Spriteful app backend', // can affect seo
+  description:      'A new Longlost app backend', // can affect seo
   display:          'standalone',
   theme_color:      '#FFFFFF',
   background_color: '#FFFFFF',
-  cacheId:          'spriteful-cms-cache'
+  cacheId:          'longlost-cms-cache'
 };
 
 // app specific configurations
@@ -48,10 +48,10 @@ const appUserAndData = {
   // web worker number of photos to simultaneously upload to db
   photoUploadBatchSize: 3
 };
-// spriteful-settings.js
+// app-settings.js
 // for switching between dark and light themes
 // NOTE:  you must update global theme styles in index.html (--app-some-color: #000000;)
-// NOTE:  iOS fix!! -> lightTextTruncate and darkTextTruncate are used for spriteful-edit-inputs
+// NOTE:  iOS fix!! -> lightTextTruncate and darkTextTruncate are used for edit-inputs
 //        fade out input text truncation. They are the rgb equivalent of their respective
 //        hex background-color with a 0% alpha. Must update them when changing theme background colors
 const theme = {

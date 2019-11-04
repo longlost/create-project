@@ -1,2 +1,2 @@
 # create-project
-start a new Spriteful project easily with this cli utilitiy
+start a new App or CMS project easily with this cli utilitiy

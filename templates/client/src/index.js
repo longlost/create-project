@@ -1,5 +1,5 @@
 
 // common boilerplate and polyfills
-import '@spriteful/boot/boot.js';
+import '@longlost/boot/boot.js';
 // main app
-import './spriteful-app.js';
+import './app-main.js';
