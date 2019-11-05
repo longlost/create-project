@@ -41,6 +41,7 @@
     "@longlost/app-header-overlay": "^1.0.1",
     "@longlost/app-shell": "^1.0.9",
     "@longlost/boot": "^1.1.0",
+    "@longlost/example-view": "^1.0.1",
     "@longlost/scroll-fab": "^1.0.0",
     "@longlost/app-element": "^1.0.4",
     "@longlost/utils": "^1.2.4"

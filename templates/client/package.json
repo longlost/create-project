@@ -36,10 +36,12 @@
     "babel-polyfill": "^6.26.0"
   },
   "dependencies": {
-    "@longlost/app-shell": "^1.0.8",
-    "@longlost/boot": "^1.0.0",
-    "@longlost/scroll-fab": "^1.0.0",
     "@longlost/app-element": "^1.0.3",
+    "@longlost/app-shell": "^1.0.8",
+    "@longlost/boot": "^1.1.5",
+    "@longlost/example-view": "^1.0.1",
+    "@longlost/fancy-header-example": "^1.0.0",
+    "@longlost/scroll-fab": "^1.0.0",
     "@longlost/utils": "^1.2.4"
-  }
+  },
 }
