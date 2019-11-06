@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@longlost/app-element": "^1.0.3",
-    "@longlost/app-shell": "^1.1.5",
+    "@longlost/app-shell": "^1.1.6",
     "@longlost/boot": "^1.1.5",
     "@longlost/example-view": "^1.0.1",
     "@longlost/fancy-header-example": "^1.0.0",
