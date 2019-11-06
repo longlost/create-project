@@ -1,1 +1,60 @@
-{}
+{
+  "orders" : {
+    "title" : "LongLost Dev CMS Starter | PWA Starter Kit",
+    "description" : "LongLost Development starter kit for CMS Progressive Web Apps.",
+    "pageJson": {
+      "@context" : "http://schema.org",
+      "@type" : "Article",
+      "headline" : "Get started quickly with this companion app starter kit",
+      "name" : "Example orders page",
+      "author" : {
+        "@type" : "Organization",
+        "name" : "LongLost Development"
+      },
+      "datePublished" : "2019-10-17T17:09:30",
+      "dateModified" : "2019-10-17T17:09:30",
+      "image" : "https://raw-dot-custom-elements.appspot.com/PolymerElements/paper-card/v2.0.0/paper-card/demo/donuts.png",
+      "publisher" : {
+        "@type": "Organization",
+        "name" : "LongLost Development",
+        "logo" : {
+          "@type" : "imageObject",
+          "url" : "https://raw-dot-custom-elements.appspot.com/PolymerElements/paper-card/v2.0.0/paper-card/demo/donuts.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://longlost-starter.web.app/"
+      }
+    }
+  },
+  "reports" : {
+    "title" : "LongLost Dev CMS Starter | PWA Starter Kit",
+    "description" : "LongLost Development starter kit for CMS Progressive Web Apps.",
+    "pageJson": {
+      "@context" : "http://schema.org",
+      "@type" : "Article",
+      "headline" : "Get started quickly with this companion app starter kit",
+      "name" : "Example reports page",
+      "author" : {
+        "@type" : "Organization",
+        "name" : "LongLost Development"
+      },
+      "datePublished" : "2019-10-17T17:09:30",
+      "dateModified" : "2019-10-17T17:09:30",
+      "image" : "https://raw-dot-custom-elements.appspot.com/PolymerElements/paper-card/v2.0.0/paper-card/demo/donuts.png",
+      "publisher" : {
+        "@type": "Organization",
+        "name" : "LongLost Development",
+        "logo" : {
+          "@type" : "imageObject",
+          "url" : "https://raw-dot-custom-elements.appspot.com/PolymerElements/paper-card/v2.0.0/paper-card/demo/donuts.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://longlost-starter.web.app/reports"
+      }
+    }
+  }
+}

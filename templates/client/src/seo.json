@@ -1,1 +1,118 @@
-{}
+{
+  "view1" : {
+    "title" : "LongLost Dev Starter | PWA Starter Kit",
+    "description" : "LongLost Development starter kit for Progressive Web Apps.",
+    "pageJson": {
+      "@context" : "http://schema.org",
+      "@type" : "Article",
+      "headline" : "Get setup quickly with this PWA starter kit",
+      "name" : "Example app shell view page",
+      "author" : {
+        "@type" : "Organization",
+        "name" : "LongLost Development"
+      },
+      "datePublished" : "2019-10-17T17:09:30",
+      "dateModified" : "2019-10-17T17:09:30",
+      "image" : "https://raw-dot-custom-elements.appspot.com/PolymerElements/paper-card/v2.0.0/paper-card/demo/donuts.png",
+      "publisher" : {
+        "@type": "Organization",
+        "name" : "LongLost Development",
+        "logo" : {
+          "@type" : "imageObject",
+          "url" : "https://raw-dot-custom-elements.appspot.com/PolymerElements/paper-card/v2.0.0/paper-card/demo/donuts.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://longlost-starter.web.app/view1"
+      }
+    }
+  },
+  "view2" : {
+    "title" : "LongLost Dev Starter | PWA Starter Kit",
+    "description" : "LongLost Development starter kit for Progressive Web Apps.",
+    "pageJson": {
+      "@context" : "http://schema.org",
+      "@type" : "Article",
+      "headline" : "Get setup quickly with this PWA starter kit",
+      "name" : "Example app shell view page",
+      "author" : {
+        "@type" : "Organization",
+        "name" : "LongLost Development"
+      },
+      "datePublished" : "2019-10-17T17:09:30",
+      "dateModified" : "2019-10-17T17:09:30",
+      "image" : "https://raw-dot-custom-elements.appspot.com/PolymerElements/paper-card/v2.0.0/paper-card/demo/donuts.png",
+      "publisher" : {
+        "@type": "Organization",
+        "name" : "LongLost Development",
+        "logo" : {
+          "@type" : "imageObject",
+          "url" : "https://raw-dot-custom-elements.appspot.com/PolymerElements/paper-card/v2.0.0/paper-card/demo/donuts.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://longlost-starter.web.app/view2"
+      }
+    }
+  },
+  "view3" : {
+    "title" : "LongLost Dev Starter | PWA Starter Kit",
+    "description" : "LongLost Development starter kit for Progressive Web Apps.",
+    "pageJson": {
+      "@context" : "http://schema.org",
+      "@type" : "Article",
+      "headline" : "Get setup quickly with this PWA starter kit",
+      "name" : "Example app shell view page",
+      "author" : {
+        "@type" : "Organization",
+        "name" : "LongLost Development"
+      },
+      "datePublished" : "2019-10-17T17:09:30",
+      "dateModified" : "2019-10-17T17:09:30",
+      "image" : "https://raw-dot-custom-elements.appspot.com/PolymerElements/paper-card/v2.0.0/paper-card/demo/donuts.png",
+      "publisher" : {
+        "@type": "Organization",
+        "name" : "LongLost Development",
+        "logo" : {
+          "@type" : "imageObject",
+          "url" : "https://raw-dot-custom-elements.appspot.com/PolymerElements/paper-card/v2.0.0/paper-card/demo/donuts.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://longlost-starter.web.app/view3"
+      }
+    }
+  },
+  "fancy" : {
+    "title" : "LongLost Dev Starter | PWA Starter Kit",
+    "description" : "LongLost Development starter kit for Progressive Web Apps.",
+    "pageJson": {
+      "@context" : "http://schema.org",
+      "@type" : "Article",
+      "headline" : "Get setup quickly with this PWA starter kit",
+      "name" : "Example app shell overlay page",
+      "author" : {
+        "@type" : "Organization",
+        "name" : "LongLost Development"
+      },
+      "datePublished" : "2019-10-17T17:09:30",
+      "dateModified" : "2019-10-17T17:09:30",
+      "image" : "https://raw-dot-custom-elements.appspot.com/PolymerElements/paper-card/v2.0.0/paper-card/demo/donuts.png",
+      "publisher" : {
+        "@type": "Organization",
+        "name" : "LongLost Development",
+        "logo" : {
+          "@type" : "imageObject",
+          "url" : "https://raw-dot-custom-elements.appspot.com/PolymerElements/paper-card/v2.0.0/paper-card/demo/donuts.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://longlost-starter.web.app/fancy"
+      }
+    }
+  }
+}
