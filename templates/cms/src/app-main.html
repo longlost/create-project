@@ -41,7 +41,6 @@
            fixed-header
            sticky-bottom-toolbar
            reveal-header
-           page="{{_selectedPage}}"
            header-size="2">
 
   <!-- top toolbar slot slot="top-toolbar-slot" -->
@@ -50,7 +49,7 @@
   
   <!-- bottom toolbar slot slot="bottom-toolbar-slot" -->
   <paper-tabs attr-for-selected="page" 
-              selected="[[_selectedPage]]" 
+              selected="[[_page]]" 
               slot="bottom-toolbar-slot"
               scrollable>
     <paper-tab page="orders" link>

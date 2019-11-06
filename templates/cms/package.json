@@ -39,7 +39,7 @@
     "@polymer/paper-input": "^3.0.2",
     "@polymer/paper-tabs": "^3.1.0",
     "@longlost/app-header-overlay": "^1.0.1",
-    "@longlost/app-shell": "^1.0.9",
+    "@longlost/app-shell": "^1.1.5",
     "@longlost/boot": "^1.1.0",
     "@longlost/example-view": "^1.0.1",
     "@longlost/scroll-fab": "^1.0.0",
