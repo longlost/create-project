@@ -1,15 +1,12 @@
 
-import {
-  AppElement, 
-  html
-}                       from '@longlost/app-element/app-element.js';
+import {AppMainMixin}   from './app-main-mixin.js';
+import {html}           from '@longlost/app-element/app-element.js';
 import {
   listen
 }                       from '@longlost/utils/utils.js';
 import htmlString       from './app-main.html';
 import accountHeaderImg from 'images/BlueOrangeBackground.jpg'
-import '@longlost/app-shell/app-shell.js';
-// import './longlost/test-view.js'; // initial page should be loaded here for best first paint exp
+// import './my-view.js'; // initial page should be loaded here for best first paint exp
 
 /**
   * "views-slot" items must have a page, label and 
@@ -27,7 +24,7 @@ import '@longlost/app-shell/app-shell.js';
   **/
 
 
-class AppMain extends AppElement {
+class AppMain extends AppMainMixin() {
   static get is() { return 'app-main'; }
 
   static get template() {
@@ -45,16 +42,31 @@ class AppMain extends AppElement {
       _imports: {
         type: Object,
         value: {
-          view1:   () => import('@longlost/example-view/example-view.js'),
-          view2:   () => import('@longlost/example-view/example-view.js'),
-          view3:   () => import('@longlost/example-view/example-view.js'),
-          example: () => import('@longlost/fancy-header-example/fancy-header-example.js')
+          view1: () => 
+            import(/* webpackChunkName: 'example-view' */'@longlost/example-view/example-view.js'),
+          view2: () => 
+            import(/* webpackChunkName: 'example-view' */'@longlost/example-view/example-view.js'),
+          view3: () => 
+            import(/* webpackChunkName: 'example-view' */'@longlost/example-view/example-view.js'),
+          fancy: () => 
+            import(/* webpackChunkName: 'fancy-header' */'@longlost/fancy-header-example/fancy-header-example.js')
         }
-      },      
-      // from app-shell
-      _selectedPage: String,
+      },
 
-      _user: Object
+      _overlayImports: {
+        type: Object,
+        value: {
+          fancy: () => 
+            import(/* webpackChunkName: 'fancy-header' */'@longlost/fancy-header-example/fancy-header-example.js')
+        }
+      },
+
+      _seoOverlayIds: {
+        type: Object,
+        value: {
+          fancy: 'fancy' // key is route, val is id
+        }
+      }
 
     };
   }
@@ -63,19 +75,7 @@ class AppMain extends AppElement {
   connectedCallback() {
     super.connectedCallback();
 
-    this._accountHeaderImg = accountHeaderImg;    
-    listen(this, 'auth-userchanged', this.__userChanged.bind(this));
-  }
-
-
-  __showAuth() {
-    this.$.appShell.showAuthUI();
-  }
-
-
-  __userChanged(event) {
-    const {user} = event.detail;
-    this._user   = user;
+    this._accountHeaderImg = accountHeaderImg; 
   }
   
 }

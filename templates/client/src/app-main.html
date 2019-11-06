@@ -1,11 +1,11 @@
   
-<app-shell id="appShell" 
-           title="Longlost"
-           imports="[[_imports]]"
+<app-shell id="appShell"
            account-header-image="[[_accountHeaderImg]]"
-           page="{{_selectedPage}}"
+           imports="[[_imports]]"
+           header-size="1"
            reveal-header
-           header-size="1">
+           seo-overlay-ids="[[_seoOverlayIds]]" 
+           title="Longlost">
 
   <!-- top toolbar slot slot="top-toolbar-slot" -->
   
@@ -28,11 +28,11 @@
 
   <!-- overlays with menu button go here -->
   <!-- they must have the slot="overlays-slot", label and page attr -->
-  <fancy-header-example id="fancy-header-example" 
+  <fancy-header-example id="fancy" 
                         icon="app-icons:terrain" 
-                        label="Example" 
+                        label="Fancy Example" 
                         slot="overlays-slot"
-                        page="example">
+                        page="fancy">
   </fancy-header-example>
 
 </app-shell>

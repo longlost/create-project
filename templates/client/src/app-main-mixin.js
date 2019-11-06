@@ -1,20 +1,21 @@
 
+import {AppElement} from '@longlost/app-element/app-element.js';
 import {
 	listen,
 	listenOnce,
 	warn
-} from '@longlost/utils/utils.js';
+} 									from '@longlost/utils/utils.js';
 import '@longlost/app-shell/app-shell.js';
 import '@longlost/app-icons/app-icons.js';
 
 
-export const AppMixin = superClass => {
-  return class AppMixin extends superClass {
+export const AppMainMixin = () => {
+  return class AppMainMixin extends AppElement {
 
 
     static get properties() {
       return {
-
+      	// From app-shell-dark-mode-changed event
 	      _darkMode: Boolean,
       	// Set true on window's 'load' event.
 	      _loaded: {
@@ -24,6 +25,8 @@ export const AppMixin = superClass => {
 	      // An object containing a group of functions that import overlay files.
 	      // To be overwritten by app-main implementation.
 	      _overlayImports: Object,
+	      // From app-shell-page-changed event
+	      _page: String,
 	 			// From app-shell via app-auth.
 	      _user: Object
 
@@ -35,9 +38,15 @@ export const AppMixin = superClass => {
       super.connectedCallback();
 
       this.__windowLoadHandler();
+    	listen(this, 'app-shell-page-changed', 			this.__pageChanged.bind(this));
     	listen(this, 'app-shell-dark-mode-changed', this.__darkModeChanged.bind(this));
     	listen(this, 'auth-userchanged', 						this.__userChanged.bind(this));
     	listen(this, 'open-overlay', 								this.__openOverlayHandler.bind(this)); 	
+    }
+
+
+    __pageChanged(event) {
+    	this._page = event.detail.value;
     }
 
 
@@ -51,7 +60,7 @@ export const AppMixin = superClass => {
 	  }
 
 	  // may be called directly by implementation
-	  async __openOverlay(id, ...args) {
+	  async __openOverlay(id, detail) {
 	  	try {
 	  		  	
 		  	if (!id) { 
@@ -74,7 +83,7 @@ export const AppMixin = superClass => {
 		  		throw new Error('The overlay must have an open method.');
 		  	}
 
-		  	await overlay.open(...args); // await here to catch errors here
+		  	await overlay.open(detail); // await here to catch errors here
 	  	}
 	  	catch (error) {
 	  		console.error(error); 		
