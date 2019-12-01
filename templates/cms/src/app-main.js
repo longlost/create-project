@@ -1,9 +1,6 @@
 
-import {AppMainMixin} from './app-main-mixin.js';
+import {AppMainMixin} from '@longlost/app-main-mixin/app-main-mixin.js';
 import {html}         from '@longlost/app-element/app-element.js';
-import {
-  listen
-}                     from '@longlost/utils/utils.js';
 import htmlString     from './app-main.html';
 import '@longlost/scroll-fab/scroll-fab.js';
 import '@polymer/paper-input/paper-input.js'; // prevent a flash when lazy loading other inputs

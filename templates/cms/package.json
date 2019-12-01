@@ -31,6 +31,7 @@
   "homepage": "https://github.com/longlost/new-cms#readme",
   "devDependencies": {
     "@babel/runtime": "^7.7.4",
+    "@longlost/tools": "^1.0.2",
     "@webcomponents/shadycss": "^1.9.3",
     "@webcomponents/webcomponentsjs": "^2.4.0",
     "babel-polyfill": "^6.26.0"
@@ -38,9 +39,9 @@
   "dependencies": {
     "@polymer/paper-input": "^3.0.2",
     "@polymer/paper-tabs": "^3.1.0",
-    "@longlost/app-header-overlay": "^1.0.1",
-    "@longlost/app-shell": "^1.1.6",
-    "@longlost/boot": "^1.1.0",
+    "@longlost/app-header-overlay": "^1.0.5",
+    "@longlost/app-shell": "^1.2.1",
+    "@longlost/boot": "^1.1.7",
     "@longlost/example-view": "^1.0.2",
     "@longlost/scroll-fab": "^1.0.0",
     "@longlost/app-element": "^1.0.4",
