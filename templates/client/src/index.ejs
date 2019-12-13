@@ -16,6 +16,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
     <title>Longlost Client</title>
     <meta name="description" content="A new Longlost PWA">
+    <!-- 
+      Fixes an issue with workbox-webpack-plugin not updating its revision number
+      for index.html. This lead to the service worker serving outdated previously
+      precached files even after the refresh prompt after a new deployment. 
+    -->
+    <meta name="hash" content="<%= webpack.hash %>"/>
 
 
     <style id="custom-style">
