@@ -13,7 +13,10 @@ const {
   createUser,
   deleteUser
 }               = require('@longlost/boot/cloud').init(admin, functions);
-const optimizer = require('@longlost/file-uploader/cloud').init(admin, functions);
+const {
+  createShareable, 
+  optimize
+}               = require('@longlost/app-file-system/cloud').init(admin, functions);
 
 
 // must add this to package.json when deploying (for es6 syntax)
@@ -67,11 +70,13 @@ const writeFile = (path, data) => {
 
 // main exported functions
 
+exports.createShareable = createShareable;
+
 exports.createUser = createUser;
 
 exports.deleteUser = deleteUser;
 
-exports.optimize = optimizer;
+exports.optimize = optimize;
 
 
 

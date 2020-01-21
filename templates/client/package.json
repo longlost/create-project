@@ -30,16 +30,16 @@
   },
   "homepage": "https://github.com/longlost/new-client#readme",
   "devDependencies": {
-    "@babel/runtime": "^7.7.6",
+    "@babel/runtime": "^7.8.3",
     "@longlost/tools": "^1.0.5",
-    "@webcomponents/shadycss": "^1.9.3",
-    "@webcomponents/webcomponentsjs": "^2.4.0",
+    "@webcomponents/shadycss": "^1.9.4",
+    "@webcomponents/webcomponentsjs": "^2.4.1",
     "babel-polyfill": "^6.26.0"
   },
   "dependencies": {
-    "@longlost/app-element": "^1.0.4",
-    "@longlost/app-main-mixin": "^1.0.1",
-    "@longlost/boot": "^1.2.1",
+    "@longlost/app-element": "^1.0.6",
+    "@longlost/app-shell": "^1.3.2",
+    "@longlost/boot": "^1.2.3",
     "@longlost/example-view": "^1.0.2",
     "@longlost/fancy-header-example": "^1.0.2",
     "@longlost/scroll-fab": "^1.0.0",
