@@ -31,7 +31,7 @@
   "homepage": "https://github.com/longlost/new-cms#readme",
   "devDependencies": {
     "@babel/runtime": "^7.8.3",
-    "@longlost/tools": "^1.0.5",
+    "@longlost/tools": "^1.0.6",
     "@webcomponents/shadycss": "^1.9.4",
     "@webcomponents/webcomponentsjs": "^2.4.1",
     "babel-polyfill": "^6.26.0"
