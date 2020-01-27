@@ -16,6 +16,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
     <title>Longlost Client</title>
     <meta name="description" content="A new Longlost PWA">
+    
     <!-- 
       Fixes an issue with workbox-webpack-plugin not updating its revision number
       for index.html. This lead to the service worker serving outdated previously
@@ -27,6 +28,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style id="custom-style">
 
       html {
+
         /**
          *
          * App themes go here
@@ -74,6 +76,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
         };
+
         /* 
          *
          * edit-input.js fade truncation iOS fix 
@@ -156,6 +159,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style>
 
       html, body {
+
         /* important for controlling modal scrolling */
         min-width:  100vw;
         min-height: 100vh;
@@ -166,14 +170,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         font-family: 'Roboto', 'Noto', sans-serif;
         line-height: 1.5;
         overflow-x:  hidden; /* ios horizontal scroll fix */
+
         /* app-settings.js theme switching */
         color:            var(--dark-text-color);
         background-color: var(--app-dark-color); /* will be status bar in ios standalone mode */
+
         /* ios pointer-events fix where the html element 
            consumes pointer events, setting pointer-events 
            to none does not work but this seems to */
         z-index: 10; 
-      }      
+      } 
+
       /* ios scroll fix */
       /* safari's rubber band effect background color*/
       body::before {
@@ -185,6 +192,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         left:     0px;
         background-color: var(--app-body-color);
       }
+
       /* ios scroll fix */
       /* safari status bar background color during scroll */
       body::after {
@@ -194,6 +202,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         right:    0px;
         left:     0px;
         height:   128px;
+        z-index:  10; /* Important for iOS 'standalone' app mode. */
         background-color: var(--app-dark-color);
       }
 
@@ -205,6 +214,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       Please enable JavaScript in your browser's settings menu to view this website/web app.
     </noscript>
     <app-main id="app"></app-main>
+
     <!-- do not remove, needed for webpack html-webpack-multi-build-plugin in build -->
     <script type="module">
       <% for (key in htmlWebpackPlugin.options.modernScripts) { %>
@@ -214,6 +224,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           document.body.appendChild(script<%= [key] %>);
       <% } %>
     </script>
+
     <!-- do not remove, needed for webpack html-webpack-multi-build-plugin in build -->
     <script nomodule>
       <% for (key in htmlWebpackPlugin.options.legacyScripts) { %>
@@ -223,6 +234,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           document.body.appendChild(script<%= [key] %>);
       <% } %>
     </script>
+
     <!-- webpack html-webpack-plugin adds script tags dynamically here -->
   </body>
 </html>
