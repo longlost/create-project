@@ -31,7 +31,7 @@
   "homepage": "https://github.com/longlost/new-cms#readme",
   "devDependencies": {
     "@babel/runtime": "^7.8.4",
-    "@longlost/tools": "^1.1.0"
+    "@longlost/tools": "^1.2.0"
   },
   "dependencies": {
     "@longlost/app-element": "^1.0.6",
