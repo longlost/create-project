@@ -26,7 +26,7 @@
         "source": "**/*.@(eot|otf|ttf|ttc|woff|woff2|font.css)",
         "headers": [
           {
-            "key": "Access-Control-Allow-Origin",
+            "key": "Cache-Control",
             "value": "max-age=31536000"
           }
         ]
@@ -35,11 +35,27 @@
         "source": "**/*.@(jpg|jpeg|gif|png|webp)",
         "headers": [
           {
+            "key" : "Access-Control-Allow-Origin",
+            "value" : "*"
+          },
+          {
             "key": "Cache-Control",
-            "value": "max-age=31536000"
+            "value": "max-age=7200"
           }
         ]
       }
     ]
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": {
+    "predeploy": [
+      "npm --prefix \"$RESOURCE_DIR\" run lint"
+    ]
+  },
+  "storage": {
+    "rules": "storage.rules"
   }
 }

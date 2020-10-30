@@ -14,9 +14,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta charset="utf-8">
     <meta name="generator" content="New Longlost app">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
-    <title>Longlost Client</title>
+    <title>Long Lost Client Starter</title>
     <meta name="description" content="A new Longlost PWA">
-    
     <!-- 
       Fixes an issue with workbox-webpack-plugin not updating its revision number
       for index.html. This lead to the service worker serving outdated previously
@@ -24,14 +23,44 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     -->
     <meta name="hash" content="<%= webpack.hash %>"/>
 
+    <!-- <meta name="google-site-verification" content="smhYdpmEXxPHqjtkVcMRZjXC4apj2n14TZJTCQOup_g"/> -->
+
+
+    <script id="pageJsonLd" type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "LongLost Starter lets you get up and running with a new PWA easily.",
+        "name": "Long Lost Development",
+        "author": {
+          "@type": "Organization",
+          "name": "Long Lost Development"
+        },
+        "datePublished": "2019-10-27T17:09:30",
+        "dateModified": "2019-10-27T17:09:30",
+        "image": "https://raw-dot-custom-elements.appspot.com/PolymerElements/paper-card/v2.0.0/paper-card/demo/donuts.png",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Long Lost Development",
+          "logo": {
+            "@type": "imageObject",
+            "url": "https://raw-dot-custom-elements.appspot.com/PolymerElements/paper-card/v2.0.0/paper-card/demo/donuts.png"
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://longlost-starter.web.app/"
+          }
+        }
+      }
+    </script>
+
 
     <style id="custom-style">
 
       html {
-
         /**
          *
-         * App themes go here
+         * App themes go here.
          *
          */          
 
@@ -39,21 +68,47 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         --app-primary-color:    #2196f3;
         --app-light-color:      #bbdefb;
         --app-accent-color:     #FF9800;
-        --app-background-color: #FFFFFF;
-        --app-body-color:       #eeeeee;
+        --app-background-color: #FFFFFF; /* Changes with dark mode. See app.config.js */
+        --app-body-color:       #eeeeee; /* Changes with dark mode. See app.config.js */
         --app-disabled-color:   #eaeaea;
         --app-error-color:      #dd2c00;
         --app-warning-color:    #FFEB3B;
 
-        --constant-light-text:  #FFFFFF; /* does not change with dark mode */
-        --constant-dark-text:   #212121; /* does not change with dark mode */
-        --light-text-color:     #FFFFFF;
-        --dark-text-color:      #212121;
-        --secondary-text-color: #727272;
-        --disabled-text-color:  #bdbdbd;
-        
+        --app-dark-color-text:    #FFFFFF; /* Text color for elements with --app-dark-color background. */
+        --app-primary-color-text: #FFFFFF; /* Text color for elements with --app-primary-color background. */
+        --app-light-color-text:   #212121; /* Text color for elements with --app-light-color background. */
+        --app-accent-color-text:  #212121; /* Text color for elements with --app-accent-color background. */        
+        --constant-light-text:    #FFFFFF; /* Does not change with dark mode. */
+        --constant-dark-text:     #212121; /* Does not change with dark mode. */
+        --light-text-color:       #FFFFFF; /* Becomes dark with dark mode. See app.config.js */
+        --dark-text-color:        #212121; /* Becomes light with dark mode. See app.config.js */
+        --secondary-text-color:   #727272;
+        --disabled-text-color:    #bdbdbd;        
 
-        --custom-ease: cubic-bezier(0.49, 0.01, 0, 1);
+        --divider-color: #e8e8e8;        
+
+        --custom-ease: cubic-bezier(0.49, 0.01, 0, 1);        
+
+        --title-mixin: {
+          font-size: 1.5em;
+        };
+
+        --title-size: 24px;
+
+        /* 
+         *
+         * edit-input.js fade truncation iOS fix 
+         * rgb equivalent of hex background color
+         *
+         */
+        --text-truncate-fade: rgba(255, 255, 255, 0);
+
+
+        /* 
+          The following css vars are DEPRECATED!!! 
+
+          Use `app-shared-styles` instead.
+        */
 
         --single-line-truncate-mixin: {
           white-space:   nowrap;
@@ -75,20 +130,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           display:            -webkit-box;
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
-        };
-
-        /* 
-         *
-         * edit-input.js fade truncation iOS fix 
-         * rgb equivalent of hex background color
-         *
-         */
-        --text-truncate-fade: rgba(255, 255, 255, 0);
-
-        --divider-color:      #e8e8e8;
-
-        --title-mixin: {
-          font-size: 1.5em;
         };
 
         --no-select-mixin: {
@@ -159,27 +200,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style>
 
       html, body {
-
         /* important for controlling modal scrolling */
         min-width:  100vw;
         min-height: 100vh;
+
+        width:      100vw;
+        max-width:  100vw;
       }
 
       body {
         margin:      0;
-        font-family: 'Roboto', 'Noto', sans-serif;
+        font-family: 'Roboto', 'Noto', Arial, Helvetica, sans-serif;
         line-height: 1.5;
-        overflow-x:  hidden; /* ios horizontal scroll fix */
+        overflow-x:  hidden; /* iOS Safari horizontal scroll fix */
 
         /* app-settings.js theme switching */
         color:            var(--dark-text-color);
         background-color: var(--app-dark-color); /* will be status bar in ios standalone mode */
-
+        
         /* ios pointer-events fix where the html element 
            consumes pointer events, setting pointer-events 
            to none does not work but this seems to */
-        z-index: 10; 
-      } 
+        z-index: 10;
+      }  
 
       /* ios scroll fix */
       /* safari's rubber band effect background color*/
@@ -209,13 +252,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
   </head>
+
+
   <body>
+    
     <noscript>
       Please enable JavaScript in your browser's settings menu to view this website/web app.
     </noscript>
+
     <app-main id="app"></app-main>
 
-    <!-- do not remove, needed for webpack html-webpack-multi-build-plugin in build -->
+    <!-- Do NOT remove! Needed for webpack html-webpack-multi-build-plugin in build. -->
     <script type="module">
       <% for (key in htmlWebpackPlugin.options.modernScripts) { %>
           var script<%= [key] %> = document.createElement('script');
@@ -225,7 +272,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <% } %>
     </script>
 
-    <!-- do not remove, needed for webpack html-webpack-multi-build-plugin in build -->
+    <!-- Do NOT remove! Needed for webpack html-webpack-multi-build-plugin in build. -->
     <script nomodule>
       <% for (key in htmlWebpackPlugin.options.legacyScripts) { %>
           var script<%= [key] %> = document.createElement('script');
@@ -235,6 +282,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <% } %>
     </script>
 
-    <!-- webpack html-webpack-plugin adds script tags dynamically here -->
+    <!-- webpack html-webpack-plugin adds script tags dynamically here. -->
+
   </body>
 </html>
