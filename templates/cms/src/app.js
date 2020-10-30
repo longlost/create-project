@@ -1,7 +1,7 @@
 
 import {AppMainMixin} from '@longlost/app-shell/app-main-mixin.js';
 import {html}         from '@longlost/app-element/app-element.js';
-import htmlString     from './app-main.html';
+import htmlString     from './app.html';
 import '@longlost/scroll-fab/scroll-fab.js';
 import '@polymer/paper-tabs/paper-tabs.js';
 import '@polymer/paper-tabs/paper-tab.js';

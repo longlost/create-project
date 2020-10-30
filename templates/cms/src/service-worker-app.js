@@ -15,8 +15,11 @@ self.addEventListener('message', async event => {
 		// Current tab will refresh once this sw has
 		// taken over control via the 'controlling' event,
 		// so message any other open tabs to reload via postMessage.
+
 		self.clients.claim();
+
     const clients = await self.clients.matchAll();
+    
     clients.forEach(client => client.postMessage({type: 'WAITING_SKIPPED'}));
 	}
 });

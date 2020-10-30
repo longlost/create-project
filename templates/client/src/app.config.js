@@ -1,15 +1,15 @@
 
 const webpackConfig = {
-  name:             'New Client',          // can affect seo
-  short_name:       'New Client',          // 12 characters or less (homescreen icon name)
-  description:      'A new Longlost PWA', // can affect seo
+  name:             'New Client',         // Can affect seo.
+  short_name:       'New Client',         // 12 characters or less (homescreen icon name).
+  description:      'A new Longlost PWA', // Can affect seo.
   display:          'standalone',
   theme_color:      '#FFFFFF',
   background_color: '#FFFFFF',
   cacheId:          'longlost-app-cache'
 };
 
-// app specific configurations
+// App specific configurations.
 const swReadyMessage = 'This app can now work offline!';
 
 const swUpdateMessage = 'New version available!';
@@ -18,14 +18,16 @@ const termsOfServiceUrl = '';
 
 const privacyPolicyUrl  = '';
 
-// firebase sdk settings
+// Firebase sdk settings.
 const firebaseConfig = {
   apiKey:            '',
   authDomain:        '',
   databaseURL:       '',
   projectId:         '',
   storageBucket:     '',
-  messagingSenderId: ''
+  messagingSenderId: '',
+  appId:             '',
+  measurementId:     ''
 };
 
 
@@ -39,14 +41,14 @@ const appUserAndData = {
   trustedDevice: true,
   // if false, block app with signin form until user signs up or signs in from a whitelist in the database
   // if true, allow anonymous users to use app until they decide to sign up or sign in
-  anonymous: true,
-  // web worker image size of processing output, in pixels
-  imageSize: 512,
-  // web worker output quality of image processing, int 0-100
-  imageQuality: 60,
-  // web worker number of photos to simultaneously upload to db
-  photoUploadBatchSize: 3
+  anonymous: true
 };
+
+// This text is part of the text displayed to the user in a modal if they deny permission
+// to use the device camera after attempting to use the camera system. See `app-camera-system`.
+const appCameraPermissionDenied = 
+  'We will never sell your data to third-party vendors or share your data with advertising agencies.';
+
 // app-settings.js
 // for switching between dark and light themes
 // NOTE:  you must update global theme styles in index.html (--app-some-color: #000000;)
@@ -64,8 +66,9 @@ const theme = {
   darkTextTruncate:  'rgba(33, 33, 33, 0)'
 };
 
-// must use older module syntax for webpack.config.js
+// Must use older module syntax for webpack.config.js
 module.exports = {
+  appCameraPermissionDenied,
   appUserAndData,
   firebaseConfig,
   privacyPolicyUrl,

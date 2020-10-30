@@ -1,7 +1,7 @@
 {
   "name": "@longlost/create-project",
-  "version": "1.2.8",
-  "description": "start a new App or CMS project easily with this cli utilitiy",
+  "version": "1.2.9",
+  "description": "Start a new Client or CMS project easily with this cli utilitiy.",
   "main": "src/index.js",
   "bin": {
     "@longlost/create-project": "bin/create-project",
@@ -33,11 +33,11 @@
   },
   "homepage": "https://github.com/longlost/create-project#readme",
   "dependencies": {
-    "arg": "^4.1.2",
-    "chalk": "^2.4.2",
+    "arg": "^4.1.3",
+    "chalk": "^4.1.0",
     "esm": "^3.2.25",
-    "execa": "^3.4.0",
-    "inquirer": "^7.0.0",
+    "execa": "^4.1.0",
+    "inquirer": "^7.3.3",
     "listr": "^0.14.3",
     "ncp": "^2.0.0",
     "pkg-install": "^1.0.0"

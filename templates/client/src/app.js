@@ -1,9 +1,10 @@
 
 import {AppMainMixin}   from '@longlost/app-shell/app-main-mixin.js';
 import {html}           from '@longlost/app-element/app-element.js';
-import htmlString       from './app-main.html';
+import htmlString       from './app.html';
 import accountHeaderImg from 'images/BlueOrangeBackground.jpg'
-// import './my-view.js'; // initial page should be loaded here for best first paint exp
+
+// import './my-view.js'; // Initial page should be loaded here for best first paint exp.
 
 /**
   * "views-slot" items must have a page, label and 

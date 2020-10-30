@@ -9,15 +9,6 @@ const path      = require('path');
 const crypto    = require('crypto');
 const mkdirp    = require('mkdirp-promise');
 const json2csv  = require('json2csv').parse;
-const {
-  createUser,
-  deleteUser
-}               = require('@longlost/boot/cloud').init(admin, functions);
-const {
-  createShareable, 
-  optimize
-}               = require('@longlost/app-file-system/cloud').init(admin, functions);
-
 
 // must add this to package.json when deploying (for es6 syntax)
 // must remove this when adding/upgrading packages
@@ -29,13 +20,9 @@ const {
 
 
 
-
-
 // firebase global setup
 const app = admin.initializeApp();
 const db  = admin.firestore();
-
-
 
 // helper functions
 
@@ -70,14 +57,13 @@ const writeFile = (path, data) => {
 
 // main exported functions
 
-exports.createShareable = createShareable;
 
-exports.createUser = createUser;
+// Creates grouped functions --> 'boot-createUser', 'boot-deleteUser'.
+exports.boot = require('@longlost/app-shell/boot/cloud');
 
-exports.deleteUser = deleteUser;
-
-exports.optimize = optimize;
-
+// Creates grouped functions --> 
+// 'files-createShareable', 'files-optimize', 'files-poster', 'files-thumbnail'.
+exports.files = require('@longlost/app-file-system/cloud');
 
 
 // allow admins to download a csv formatted assessments report file
