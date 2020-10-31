@@ -67,28 +67,25 @@ export async function createProject(options) {
 			title: 'Copy project files',
 			task: () => copyTemplateFiles(options)
 		},
-		{
-			title: 'Initialize git',
-			task: () => initGit(options),
-			enabled: () => options.git
-		},
-		{
-			title: 'Install dependencies',
-			task: () =>
-				projectInstall({
-					cwd: options.targetDirectory
-				}),
-			skip: () =>
-				!options.runInstall
-					? 'Pass --install to automatically install dependencies'
-					: undefined
-		}
+		// {
+		// 	title: 'Initialize git',
+		// 	task: () => initGit(options),
+		// 	enabled: () => options.git
+		// },
+		// {
+		// 	title: 'Install dependencies',
+		// 	task: () =>
+		// 		projectInstall({
+		// 			cwd: options.targetDirectory
+		// 		}),
+		// 	skip: () =>
+		// 		!options.runInstall
+		// 			? 'Pass --install to automatically install dependencies'
+		// 			: undefined
+		// }
 	]);
 
 	await tasks.run();
-
-	console.log('Copy project files');
-	await copyTemplateFiles(options);
 
 	console.log('%s Project ready', chalk.green.bold('DONE'));
 	return true;
