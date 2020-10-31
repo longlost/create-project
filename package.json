@@ -1,6 +1,6 @@
 {
   "name": "@longlost/create-project",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "description": "Start a new Client or CMS project easily with this cli utilitiy.",
   "main": "src/index.js",
   "bin": {
