@@ -53,20 +53,38 @@ const undoGitIgnoreRename = async options => {
 	const dir 	= options.targetDirectory;
 	const files = await readdir(dir);
 
-	const gitIgnoreFile = files.find(file => file.includes('gitignore'));
+	
+
+	console.log('Files: ', files);
+
+
+
+	const gitignorePath = files.find(file => file.includes('gitignore'));
+
+
+	console.log('gitignorePath: ', gitignorePath);
+
 
 	// No need to rename if it already exists.
-	if (gitignore) { return; }
+	if (gitignorePath) { return; }
 
 	const npmignorePath = files.find(file => file.includes('npmignore'));
+
+
+	console.log('npmignorePath: ', npmignorePath);
+
 
 	// No '.npmignore' file found. Bail.
 	if (!npmignorePath) { return; }
 
-	const dirname 			= path.dirname(npmignorePath);
-	const gitignorePath = path.join(dirname, '.gitignore');
+	const dirname = path.dirname(npmignorePath);
+	const newPath = path.join(dirname, '.gitignore');
 
-	return rename(npmignorePath, gitignorePath);
+
+	console.log('newPath: ', newPath);
+	
+
+	return rename(npmignorePath, newPath);
 };
 
 
