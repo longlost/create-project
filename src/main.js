@@ -19,74 +19,106 @@ import Listr 						from 'listr';
 import {projectInstall} from 'pkg-install';
 
 
-const access = promisify(fs.access);
-const copy 	 = promisify(ncp);
+const access 	= promisify(fs.access);
+const copy 	 	= promisify(ncp);
+const readdir = promisify(fs.readdir);
+const rename 	= promisify(fs.rename);
 
 
-async function copyTemplateFiles(options) {
-	return copy(options.templateDirectory, options.targetDirectory, {
-		clobber: false
-	});
-}
+const copyTemplateFiles = options => 
+	copy(options.templateDirectory, options.targetDirectory, {clobber: false});
 
 
-async function initGit(options) {
+const initGit = async options => {
+
 	const result = await execa('git', ['init'], {
 		cwd: options.targetDirectory
 	});
+
 	if (result.failed) {
-		return Promise.reject(new Error('Failed to initialize git'));
+		throw new Error('Failed to initialize git');
 	}
+
 	return;
-}
+};
+
+// Npm automatically renames existing '.gitignore' files to '.npmignore'.
+// This is NOT the desired behavior.
+// Npm documentation and issues state that this is not a bug, 
+// and will not be changed in the future. 
+// Also, there is no fix or options to override this so therefore,
+// the only option is to undo the change afterward.
+const undoGitIgnoreRename = async options => {
+
+	const dir 	= options.targetDirectory;
+	const files = await readdir(dir);
+
+	const gitIgnoreFile = files.find(file => file.includes('gitignore'));
+
+	// No need to rename if it already exists.
+	if (gitignore) { return; }
+
+	const npmignorePath = files.find(file => file.includes('npmignore'));
+
+	// No '.npmignore' file found. Bail.
+	if (!npmignorePath) { return; }
+
+	const dirname 			= path.dirname(npmignorePath);
+	const gitignorePath = path.join(dirname, '.gitignore');
+
+	return rename(npmignorePath, gitignorePath);
+};
 
 
-export async function createProject(options) {
+export const createProject = async options => {
 	options = {
 		...options,
 		targetDirectory: options.targetDirectory || process.cwd(),
 	};
 
 	const currentFileUrl = import.meta.url;
+
 	const templateDir = path.resolve(
 		new URL(currentFileUrl).pathname,
 		'../../templates',
 		options.template.toLowerCase()
 	);
+
 	options.templateDirectory = templateDir;
 
 	try {
 		await access(templateDir, fs.constants.R_OK);
-	} catch (err) {
-		console.error('%s Invalid template name', chalk.red.bold('ERROR'));
+	} 
+	catch (_) {
+		console.error(`${chalk.red.bold('ERROR')} Invalid template name`);
 		process.exit(1);
 	}
 
 	const tasks = new Listr([
 		{
 			title: 'Copy project files',
-			task: () => copyTemplateFiles(options)
+			task: 	() => copyTemplateFiles(options)
 		},
-		// {
-		// 	title: 'Initialize git',
-		// 	task: () => initGit(options),
-		// 	enabled: () => options.git
-		// },
-		// {
-		// 	title: 'Install dependencies',
-		// 	task: () =>
-		// 		projectInstall({
-		// 			cwd: options.targetDirectory
-		// 		}),
-		// 	skip: () =>
-		// 		!options.runInstall
-		// 			? 'Pass --install to automatically install dependencies'
-		// 			: undefined
-		// }
+		{
+			title: 	'Initialize git',
+			task: 	 () => initGit(options),
+			enabled: () => options.git
+		},
+		{
+			title: 'Install dependencies',
+			task: 	() => projectInstall({cwd: options.targetDirectory}),
+			skip: 	() => !options.runInstall ? 
+											'Pass --install to automatically install dependencies' : undefined
+		},
+		{
+			title: 'Undoing gitignore rename',
+			task: 	() => undoGitIgnoreRename(options)
+		}
 	]);
 
 	await tasks.run();
 
-	console.log('%s Project ready', chalk.green.bold('DONE'));
+	console.log(`${chalk.green.bold('DONE')} Project ready`);
+
 	return true;
-}
+};
